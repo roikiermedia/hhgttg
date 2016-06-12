@@ -7,7 +7,9 @@ horizon.onReady(function() {
 horizon.connect();
 
 
-//var space = horizon("space-status");
+var articles = horizon("articles");
+var history = horizon("history");
+
 
 //generate UUIDs
 function generateUUID(){
