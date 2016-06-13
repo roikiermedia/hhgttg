@@ -37,7 +37,7 @@ var articleEditView = Vue.extend({
 var App = Vue.extend({});
 var router = new VueRouter();
 
-
+// !! use ONLY single qoutes on paths ('/path') !!
 router.map({
   '/:linkId': {
     component: articleView
@@ -45,6 +45,11 @@ router.map({
   '/:linkId/edit': {
     component: articleEditView
   }
+});
+
+router.redirect({
+  // redirect '/' to main page
+  '/': '/main'
 });
 
 router.start(App, '#content');
