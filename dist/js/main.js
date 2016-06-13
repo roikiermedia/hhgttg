@@ -10,6 +10,20 @@ horizon.connect();
 var articles = horizon("articles");
 var history = horizon("history");
 
+/*
+structure of article objects
+
+article = {
+  title: "string",
+  content: "markdown string",
+  changedate: "date",
+  changeauthor: "string",
+  linkid: "string"
+}
+
+rethinkdb handles _id
+*/
+
 
 //generate UUIDs
 function generateUUID(){
