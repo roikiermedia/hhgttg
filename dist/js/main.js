@@ -25,7 +25,7 @@ rethinkdb handles _id
 */
 
 
-
+// Components
 var articleView = Vue.extend({
     template: '#articleView'
 });
@@ -34,6 +34,7 @@ var articleEditView = Vue.extend({
     template: '#articleEditView'
 });
 
+// Routing
 var App = Vue.extend({});
 var router = new VueRouter();
 
@@ -56,7 +57,7 @@ router.start(App, '#content');
 
 
 
-//generate UUIDs
+// generate UUIDs
 function generateUUID(){
     var d = new Date().getTime();
     if(window.performance && typeof window.performance.now === "function"){
