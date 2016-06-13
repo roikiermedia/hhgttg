@@ -16,9 +16,9 @@ structure of article objects
 article = {
   title: "string",
   content: "markdown string",
-  changedate: "date",
-  changeauthor: "string",
-  linkid: "string"
+  changeDate: "date",
+  changeAuthor: "string",
+  linkId: "string"
 }
 
 rethinkdb handles _id
