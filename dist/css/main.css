@@ -57,4 +57,7 @@ p {
 .content {
   max-width: 85%;
   background-color: #fff;
+  padding-left: 2em;
+  padding-top: 0.25em;
+  margin-top: 1em;
 }

@@ -19,9 +19,28 @@
   </head>
   <body>
 
-    <div class="content row">
+    <header></header>
 
+    <nav></nav>
+
+    <div class="content row" id="content">
+      <router-view></router-view>
     </div>
+
+
+    <!-- TEMPLATES -->
+
+    <template id="articleView">
+      <h1>{{ $route.params.linkId }}</h1>
+      <div>Content</div>
+      <p><a v-link="{ path: '/foo/edit' }">Edit</a></p>
+    </template>
+
+    <template id="articleEditView">
+      <h1>Edit {{ $route.params.linkId }}</h1>
+      <div>Content</div>
+      <p><a v-link="{ path: '/foo' }">Back</a></p>
+    </template>
 
     <script src="/js/vue.js"></script>
     <script src="/js/vue-router.js"></script>
