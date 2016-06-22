@@ -45,8 +45,36 @@ var articleView = Vue.extend({
 });
 
 var articleEditView = Vue.extend({
-    template: '#articleEditView'
+  name: "articleEditView",
+  template: '#articleEditView',
+  data: function() {
+    return {
+      article: ""
+    }
+  },
+  methods: {
+    backToArticleView: function () {
+      router.go("/" + this.$route.params.linkId);
+    },
+    saveEdit: function() {
+      articles.upsert({
+        id: this.article.id,
+        title: this.article.title,
+        content: this.article.content,
+        linkId: this.article.linkId
+      });
+    }
+  },
+  route: {
+    data: function () {
+      this.article = '';
+
+      var articleQuery = this.$route.params.linkId;
+      articles.find({linkId: articleQuery}).fetch().subscribe((result) => this.article = result, (err) => console.error("Fetch Article failed!"));
+    }
+  }
 });
+
 
 // Routing
 var App = Vue.extend({});
