@@ -27,21 +27,21 @@ rethinkdb handles _id
 
 // Components
 var articleView = Vue.extend({
-    name : "articleView",
-    template: '#articleView',
-    data: function() {
-      return {
-        article: ''
-      }
-    },
-    route: {
-      data: function () {
-        this.article = '';
-
-        var articleQuery = this.$route.params.linkId;
-        articles.find({linkId: articleQuery}).fetch().subscribe((result) => this.article = result, (err) => console.error("Fetch Article failed!"));
-      }
+  name : "articleView",
+  template: '#articleView',
+  data: function() {
+    return {
+      article: ''
     }
+  },
+  route: {
+    data: function () {
+      this.article = '';
+
+      var articleQuery = this.$route.params.linkId;
+      articles.find({linkId: articleQuery}).fetch().subscribe((result) => this.article = result, (err) => console.error("Fetch Article failed!"));
+    }
+  }
 });
 
 var articleEditView = Vue.extend({
