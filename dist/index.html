@@ -38,6 +38,7 @@
 
     <template id="articleEditView">
       <h1>Edit {{ $route.params.linkId }}</h1>
+      <div v-html="article.content | marked"></div>
       <textarea v-model="article.content" name="name" rows="8" cols="40"></textarea>
       <button @click.prevent="saveEdit" type="button" name="button">Submit</button>
       <a @click.prevent="backToArticleView" href="#">Back to Article</a>

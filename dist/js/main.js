@@ -57,7 +57,11 @@ var articleEditView = Vue.extend({
   template: '#articleEditView',
   data: function() {
     return {
-      article: ""
+      article:  {
+        title: "",
+        content: "",
+        linkId: "",
+      }
     }
   },
   methods: {
@@ -75,7 +79,11 @@ var articleEditView = Vue.extend({
   },
   route: {
     data: function () {
-      this.article = '';
+      this.article = {
+        title: "",
+        content: "",
+        linkId: "",
+      };
 
       var articleQuery = this.$route.params.linkId;
       articles.find({linkId: articleQuery}).fetch().subscribe((result) => this.article = result, (err) => console.error("Fetch Article failed!"));
