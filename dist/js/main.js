@@ -31,12 +31,20 @@ var articleView = Vue.extend({
   template: '#articleView',
   data: function() {
     return {
-      article: ''
+      article: {
+        title: "",
+        content: "",
+        linkId: "",
+      }
     }
   },
   route: {
     data: function () {
-      this.article = '';
+      this.article = {
+        title: "",
+        content: "",
+        linkId: "",
+      };
 
       var articleQuery = this.$route.params.linkId;
       articles.find({linkId: articleQuery}).fetch().subscribe((result) => this.article = result, (err) => console.error("Fetch Article failed!"));
@@ -73,6 +81,11 @@ var articleEditView = Vue.extend({
       articles.find({linkId: articleQuery}).fetch().subscribe((result) => this.article = result, (err) => console.error("Fetch Article failed!"));
     }
   }
+});
+
+// Filters
+Vue.filter('marked', function(value) {
+  return marked(value);
 });
 
 

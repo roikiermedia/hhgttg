@@ -32,7 +32,7 @@
 
     <template id="articleView">
       <h1>{{ article.title }} <a v-link="{ path: 'edit', append: true }"><i class="material-icons">mode_edit</i></a></h1>
-      <div>{{ article.content }}</div>
+      <div v-html="article.content | marked"></div>
       <p><a v-link="{ path: 'edit', append: true }">Edit</a></p>
     </template>
 
@@ -45,6 +45,7 @@
 
     <script src="/js/vue.js"></script>
     <script src="/js/vue-router.js"></script>
+    <script src="/js/marked.min.js"></script>
     <script src="http://localhost:8181/horizon/horizon.js"></script>
     <script src="/js/main.js"></script>
   </body>
