@@ -31,15 +31,17 @@
     <!-- TEMPLATES -->
 
     <template id="articleView">
-      <p><a v-link="{ path: '/foo/edit' }">Edit</a></p>
       <h1>{{ article.title }}</h1>
       <div>{{ article.content }}</div>
+      <p><a v-link="{ path: 'edit', append: true }">Edit</a></p>
+      <p><a v-link="{ path: '/test' }">test</a></p>
+      <p><a v-link="{ path: '/asdf' }">asdf</a></p>
     </template>
 
     <template id="articleEditView">
       <h1>Edit {{ $route.params.linkId }}</h1>
       <div>Content</div>
-      <p><a v-link="{ path: '/foo' }">Back</a></p>
+      <p><a v-link="{ path: '/test' }">Back</a></p>
     </template>
 
     <script src="/js/vue.js"></script>
