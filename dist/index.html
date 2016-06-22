@@ -31,9 +31,9 @@
     <!-- TEMPLATES -->
 
     <template id="articleView">
-      <h1>{{ $route.params.linkId }}</h1>
-      <div>Content</div>
       <p><a v-link="{ path: '/foo/edit' }">Edit</a></p>
+      <h1>{{ article.title }}</h1>
+      <div>{{ article.content }}</div>
     </template>
 
     <template id="articleEditView">
