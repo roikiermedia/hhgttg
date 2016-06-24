@@ -47,7 +47,18 @@ var articleView = Vue.extend({
       };
 
       var articleQuery = this.$route.params.linkId;
-      articles.find({linkId: articleQuery}).fetch().subscribe((result) => this.article = result, (err) => console.error("Fetch Article failed!"));
+      articles.find({linkId: articleQuery}).fetch().subscribe(
+        (result) => {
+          this.article = result;
+        },
+        (err) => console.error("Fetch Article failed!"),
+        (completed) => {
+          if (this.article.linkId == "") {
+            //non-existing article, reroute to create page
+            router.go("/" + this.$route.params.linkId + "/create");
+          }
+        }
+      );
     }
   }
 });
@@ -86,12 +97,76 @@ var articleEditView = Vue.extend({
       };
 
       var articleQuery = this.$route.params.linkId;
-      articles.find({linkId: articleQuery}).fetch().subscribe((result) => this.article = result, (err) => console.error("Fetch Article failed!"));
+      articles.find({linkId: articleQuery}).fetch().subscribe(
+        (result) => {
+          this.article = result;
+        },
+        (err) => console.error("Fetch Article failed!"),
+        (completed) => {
+          if (this.article.linkId == "") {
+            //non-existing article, reroute to create page
+            router.go("/" + this.$route.params.linkId + "/create");
+          }
+        }
+      );
     }
   }
 });
 
+var articleCreateView = Vue.extend({
+  name: "articleCreateView",
+  template: '#articleCreateView',
+  data: function() {
+    return {
+      article:  {
+        title: "",
+        content: "",
+        linkId: "",
+      }
+    }
+  },
+  methods: {
+    backToArticleView: function () {
+      router.go("/" + this.$route.params.linkId);
+    },
+    saveEdit: function() {
+      articles.upsert({
+        id: this.article.id,
+        title: this.article.title,
+        content: this.article.content,
+        linkId: this.article.linkId
+      });
+    }
+  },
+  route: {
+    data: function () {
+      this.article = {
+        title: "",
+        content: "",
+        linkId: "",
+      };
+
+      var articleQuery = this.$route.params.linkId;
+      articles.find({linkId: articleQuery}).fetch().subscribe(
+        (result) => {
+          this.article = result;
+        },
+        (err) => console.error("Fetch Article failed!"),
+        (completed) => {
+          if (this.article.linkId !== "") {
+            //existing article, reroute to edit page
+            router.go("/" + this.$route.params.linkId + "/edit");
+          }
+          else { this.article.linkId = this.$route.params.linkId }
+        }
+      );
+    }
+  }
+});
+
+
 // Filters
+// Markdown Parser
 Vue.filter('marked', function(value) {
   return marked(value);
 });
@@ -108,6 +183,9 @@ router.map({
   },
   '/:linkId/edit': {
     component: articleEditView
+  },
+  '/:linkId/create': {
+    component: articleCreateView
   }
 });
 

@@ -46,6 +46,17 @@
       <a @click.prevent="backToArticleView" href="#">Back to Article</a>
     </template>
 
+    <template id="articleCreateView">
+      <h1>Create /{{ $route.params.linkId }}</h1>
+      <p>This Site does not exist. Do you want to create it?</p>
+      <h1>{{ article.title }}</h1>
+      <div v-html="article.content | marked"></div>
+      <input v-model="article.title" type="text">
+      <textarea v-model="article.content" name="name" rows="8" cols="40"></textarea>
+      <button @click.prevent="saveEdit" type="button" name="button">Submit</button>
+      <a @click.prevent="backToArticleView" href="#">Back to Article</a>
+    </template>
+
     <script src="/js/vue.js"></script>
     <script src="/js/vue-router.js"></script>
     <script src="/js/marked.min.js"></script>
