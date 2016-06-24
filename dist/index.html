@@ -37,8 +37,10 @@
     </template>
 
     <template id="articleEditView">
-      <h1>Edit {{ $route.params.linkId }}</h1>
+      <h1>Edit /{{ $route.params.linkId }}</h1>
+      <h1>{{ article.title }}</h1>
       <div v-html="article.content | marked"></div>
+      <input v-model="article.title" type="text">
       <textarea v-model="article.content" name="name" rows="8" cols="40"></textarea>
       <button @click.prevent="saveEdit" type="button" name="button">Submit</button>
       <a @click.prevent="backToArticleView" href="#">Back to Article</a>
