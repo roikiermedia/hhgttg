@@ -36,25 +36,45 @@
       <p><a v-link="{ path: 'edit', append: true }">Edit</a></p>
     </template>
 
-    <template id="articleEditView">
-      <h1>Edit /{{ $route.params.linkId }}</h1>
-      <h1>{{ article.title }}</h1>
-      <div v-html="article.content | marked"></div>
-      <input v-model="article.title" type="text">
-      <textarea v-model="article.content" name="name" rows="8" cols="40"></textarea>
-      <button @click.prevent="saveEdit" type="button" name="button">Submit</button>
-      <a @click.prevent="backToArticleView" href="#">Back to Article</a>
+    <template id="articleEditView" class="row">
+      <h2>Edit /{{ $route.params.linkId }}</h2>
+
+      <input v-model="article.title" class="titleEditor" type="text">
+      <div class="editor row">
+        <div class="markdown col s12 m6">
+          <textarea v-model="article.content"></textarea>
+        </div>
+        <div class="preview col s12 m6">
+          <div v-html="article.content | marked" class="contentPreview"></div>
+        </div>
+      </div>
+
+      <div class="actionButtons row">
+        <button @click.prevent="backToArticleView" type="button" name="button">Back to Article</button>
+        <button @click.prevent="saveEdit" type="button" name="button">Save Article</button>
+      </div>
+
     </template>
 
     <template id="articleCreateView">
-      <h1>Create /{{ $route.params.linkId }}</h1>
+      <h2>Create /{{ $route.params.linkId }}</h2>
       <p>This Site does not exist. Do you want to create it?</p>
-      <h1>{{ article.title }}</h1>
-      <div v-html="article.content | marked"></div>
-      <input v-model="article.title" type="text">
-      <textarea v-model="article.content" name="name" rows="8" cols="40"></textarea>
-      <button @click.prevent="saveEdit" type="button" name="button">Submit</button>
-      <a @click.prevent="backToArticleView" href="#">Back to Article</a>
+
+      <input v-model="article.title" class="titleEditor" type="text">
+      <div class="editor row">
+        <div class="markdown col s12 m6">
+          <textarea v-model="article.content"></textarea>
+        </div>
+        <div class="preview col s12 m6">
+          <div v-html="article.content | marked" class="contentPreview"></div>
+        </div>
+      </div>
+
+      <div class="actionButtons row">
+        <button @click.prevent="backToArticleView" type="button" name="button">Back to Article</button>
+        <button @click.prevent="saveEdit" type="button" name="button">Save Article</button>
+      </div>
+      
     </template>
 
     <script src="/js/vue.js"></script>
