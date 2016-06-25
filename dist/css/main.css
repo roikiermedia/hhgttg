@@ -44,6 +44,10 @@ body {
   overflow-x: hidden;
 }
 
+pre {
+  font-family: 'Source Code Pro', monospace;
+}
+
 
 /* === TEXT ===*/
 
@@ -67,8 +71,9 @@ p {
 
 .titleEditor {
   width: 90%;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1.5em;
-  font-weight: bold;
+  font-weight: 700;
   padding: 0.2em;
   border-style: none;
   margin-bottom: 0.2em;
@@ -80,5 +85,7 @@ p {
   border: none;
   resize: none;
   outline: none;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 14px;
   background-color: #f6f6f6;
 }
