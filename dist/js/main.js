@@ -157,7 +157,11 @@ var articleCreateView = Vue.extend({
             //existing article, reroute to edit page
             router.go("/" + this.$route.params.linkId + "/edit");
           }
-          else { this.article.linkId = this.$route.params.linkId }
+          else {
+            this.article.linkId = this.$route.params.linkId;
+            this.article.title = this.$route.params.linkId;
+            this.article.content = "## Write something in Markdown here!"
+          }
         }
       );
     }
