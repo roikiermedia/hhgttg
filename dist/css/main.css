@@ -56,6 +56,52 @@ p {
 }
 
 
+/* === HEADER ===*/
+
+header {
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+}
+
+header .title {
+  font-weight: 100;
+  font-size: 2em;
+  margin-left: 2em;
+  padding-top: 0.5em;
+  padding-bottom: 0.3em;
+  flex-grow: 2;
+}
+
+.headerToolbar {
+  margin-right: 4em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.headerToolbar .user {
+  margin-left: 1.75em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 100;
+}
+
+.headerToolbar .user i {
+  margin-right: 0.25em;
+}
+
+.search input {
+  width: 12em;
+  font-size: 14px;
+  font-weight: 100;
+  padding: 0.25em;
+}
+
+
 /* === CONTENT ===*/
 
 .content {
@@ -63,7 +109,7 @@ p {
   background-color: #fff;
   padding-left: 2em;
   padding-top: 0.25em;
-  margin-top: 1em;
+  margin-top: 2em;
 }
 
 
