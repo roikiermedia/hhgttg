@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/css/grid.css" charset="utf-8">
 
   </head>
-  <body id="app">
+  <body id="app" class="row">
 
     <header>
       <div class="title">{{ settings.title }}</div>
@@ -32,10 +32,16 @@
       </div>
     </header>
 
-    <nav></nav>
+    <nav class="col s12 m2 row">
+      <div class="navcontent col s12">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </div>
+    </nav>
 
-    <div class="content row" id="content">
-      <router-view></router-view>
+    <div class="content col s12 m10 row" id="content">
+      <div class="contentcontainer">
+        <router-view></router-view>
+      </div>
     </div>
 
 

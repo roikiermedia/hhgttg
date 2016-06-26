@@ -44,6 +44,8 @@ body {
   overflow-x: hidden;
 }
 
+nav {}
+
 
 /* === TEXT ===*/
 
@@ -112,14 +114,34 @@ header .title {
 }
 
 
+/* === NAV === */
+
+.navcontent {
+  width: 100%;
+  background-color: #ffffff;
+  margin-top: 2em;
+  margin-right: 2em;
+  padding-top: 0.5em !important;
+  padding-bottom: 0.25em !important;
+}
+
+
 /* === CONTENT ===*/
 
-.content {
-  max-width: 85%;
+.contentcontainer {
+  max-width: 100%;
   background-color: #fff;
   padding-left: 2em;
   padding-top: 0.25em;
   margin-top: 2em;
+  margin-right: 2em;
+  padding-bottom: 0.25em;
+}
+
+@media (max-width: 600px) {
+  .contentcontainer {
+    margin-right: 0em !important;
+  }
 }
 
 
