@@ -255,7 +255,7 @@ var App = new Vue({
   attached: function() {
     articles.find({linkId: "sidebar"}).fetch().subscribe(
       result => this.sidebar = result,
-      console.error("Fetch Sidebar failed!")
+      err => console.error("Fetch Sidebar failed!")
     );
   }
 })
