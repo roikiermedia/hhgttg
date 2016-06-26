@@ -90,6 +90,7 @@ var articleEditView = Vue.extend({
         content: this.article.content,
         linkId: this.article.linkId
       });
+      router.go("/" + this.$route.params.linkId);
     }
   },
   route: {
@@ -140,6 +141,7 @@ var articleCreateView = Vue.extend({
         content: this.article.content,
         linkId: this.article.linkId
       });
+      router.go("/" + this.$route.params.linkId);
     }
   },
   route: {
