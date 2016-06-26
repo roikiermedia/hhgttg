@@ -33,9 +33,7 @@
     </header>
 
     <nav class="col s12 m2 row">
-      <div class="navcontent col s12">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </div>
+      <div v-html="sidebar.content | marked" class="navcontent col s12"></div>
     </nav>
 
     <div class="content col s12 m10 row" id="content">
@@ -89,6 +87,24 @@
 
       <div class="actionButtons row">
         <button @click.prevent="backToArticleView" type="button" name="button">Back to Article</button>
+        <button @click.prevent="saveEdit" type="button" name="button">Save Article</button>
+      </div>
+
+    </template>
+
+    <template id="sidebarEditView" class="row">
+      <h2>Edit Sidebar</h2>
+
+      <div class="editor row">
+        <div class="markdown col s12 m6">
+          <textarea v-model="sidebar.content"></textarea>
+        </div>
+        <div class="preview col s12 m6">
+          <div v-html="sidebar.content | marked" class="contentPreview" style="width: 13vw !important;"></div>
+        </div>
+      </div>
+
+      <div class="actionButtons row">
         <button @click.prevent="saveEdit" type="button" name="button">Save Article</button>
       </div>
 

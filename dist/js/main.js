@@ -172,6 +172,36 @@ var articleCreateView = Vue.extend({
   }
 });
 
+var sidebarEditView = Vue.extend({
+  name: 'sidebarEditView',
+  template: '#sidebarEditView',
+  data: function() {
+    return {
+      sidebar: {
+        content: ""
+      }
+    }
+  },
+  methods: {
+    saveEdit: function() {
+      articles.upsert({
+        id: this.sidebar.id,
+        linkId: "sidebar",
+        title: "sidebar",
+        content: this.sidebar.content
+      });
+    }
+  },
+  route: {
+    data: function() {
+      articles.find({linkId: "sidebar"}).fetch().subscribe(
+        result => this.sidebar = result,
+        err => console.error("Fetch Sidebar failed!")
+      );
+    }
+  }
+});
+
 
 // Filters
 // Markdown Parser
@@ -194,12 +224,17 @@ router.map({
   },
   '/:linkId/create': {
     component: articleCreateView
+  },
+  '/sidebar/edit': {
+    component: sidebarEditView
   }
 });
 
 router.redirect({
   // redirect '/' to main page
-  '/': '/main'
+  '/': '/main',
+  // sidebar to sidebarEditView
+  '/sidebar': '/sidebar/edit'
 });
 
 router.start(Content, '#content');
@@ -213,5 +248,14 @@ var App = new Vue({
       title: config.title
     },
     user: {},
+    sidebar: {
+      content: ""
+    }
+  },
+  attached: function() {
+    articles.find({linkId: "sidebar"}).fetch().subscribe(
+      result => this.sidebar = result,
+      console.error("Fetch Sidebar failed!")
+    );
   }
 })
