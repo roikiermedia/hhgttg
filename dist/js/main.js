@@ -164,7 +164,7 @@ var articleCreateView = Vue.extend({
           else {
             this.article.linkId = this.$route.params.linkId;
             this.article.title = this.$route.params.linkId;
-            this.article.content = "## Write something in Markdown here!"
+            this.article.content = "## Write something in Markdown!"
           }
         }
       );
