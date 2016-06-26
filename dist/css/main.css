@@ -63,7 +63,8 @@ pre {
 
 hr {
   border: none;
-  border-bottom: solid 1px rgb(38, 38, 38);
+  border-bottom: solid 1px rgb(221, 221, 221);
+  margin-right: 25%;
 }
 
 blockquote {
