@@ -116,6 +116,7 @@ header .title {
   padding-top: 0.5em;
   padding-bottom: 0.3em;
   flex-grow: 2;
+  color: #2b2b2b;
 }
 
 .headerToolbar {
