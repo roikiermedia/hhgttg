@@ -76,6 +76,14 @@ blockquote {
   border-left: solid 4px rgb(221, 221, 221);
 }
 
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
 
 /* === HEADER ===*/
 
