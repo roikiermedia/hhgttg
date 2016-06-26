@@ -44,15 +44,19 @@ body {
   overflow-x: hidden;
 }
 
-pre {
-  font-family: 'Source Code Pro', monospace;
-}
-
 
 /* === TEXT ===*/
 
 p {
   color: #2b2b2b;
+}
+
+a {
+  text-decoration: none;
+}
+
+pre {
+  font-family: 'Source Code Pro', monospace;
 }
 
 
@@ -70,6 +74,7 @@ header .title {
   font-weight: 100;
   font-size: 2em;
   margin-left: 2em;
+  margin-right: 1em;
   padding-top: 0.5em;
   padding-bottom: 0.3em;
   flex-grow: 2;
@@ -94,8 +99,13 @@ header .title {
   margin-right: 0.25em;
 }
 
+.search {
+  max-width: 12em;
+  flex-shrink: 2;
+}
+
 .search input {
-  width: 12em;
+  width: 100%;
   font-size: 14px;
   font-weight: 100;
   padding: 0.25em;

@@ -1,3 +1,7 @@
+// Global Settings
+config = {
+  title: "chaosGuide"
+}
 
 // connect to database
 var horizon = Horizon({host: 'localhost:8181'});
@@ -177,7 +181,7 @@ Vue.filter('marked', function(value) {
 
 
 // Routing
-var App = Vue.extend({});
+var Content = Vue.extend({});
 var router = new VueRouter();
 
 // !! use ONLY single qoutes on paths ('/path') !!
@@ -198,4 +202,16 @@ router.redirect({
   '/': '/main'
 });
 
-router.start(App, '#content');
+router.start(Content, '#content');
+
+
+// Main App
+var App = new Vue({
+  el: '#app',
+  data: {
+    settings: {
+      title: config.title
+    },
+    user: {},
+  }
+})
